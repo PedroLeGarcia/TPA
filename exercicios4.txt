@@ -1,0 +1,271 @@
+1-
+using System;
+ class MainClass {
+  public static void Main (string[] args) {
+      int[] y = new int[15];
+      
+      for(int x =0; x < 4; x++){
+        Console.WriteLine($"Digite o {x + 1} valor:");
+        y[x] = int.Parse(Console.ReadLine());
+        Console.Clear();
+      }
+      for(int osorio =0; osorio < 4; osorio++){
+        if(!(osorio % 2 != 0)){
+          Console.WriteLine(y[osorio]);
+        }
+      }
+
+    }
+   }
+-----------------------------------------------------
+2-
+using System;
+ class MainClass {
+  public static void Main (string[] args) {
+      string[] nome = new string[10];
+      double[] preco = new double[10];
+      double pesquisa =0;
+
+      for(int maico =0; maico < 15; maico++){
+        Console.WriteLine($"Digite o nome do {maico + 1} produto desejado:");
+        nome[maico] = Console.ReadLine();
+        Console.Clear();
+      }
+      for(int chaplin =0; chaplin < 15; chaplin++){
+        Console.WriteLine($"Digite o preço do {chaplin + 1} produto desejado:");
+        preco[chaplin] = double.Parse(Console.ReadLine());
+        Console.Clear();
+      }
+      Console.WriteLine("Digite o valor para a pesquisa:");
+      pesquisa = double.Parse(Console.ReadLine());
+
+      for(int mazzaropi=0; mazzaropi < 15; mazzaropi++){
+        if(preco[mazzaropi]<=pesquisa){
+        Console.WriteLine($"Nome: {nome[mazzaropi]}\n Preço:{preco[mazzaropi]}");
+        }
+      }
+    }
+   }
+----------------------------------------------------------
+3-
+using System;
+ class MainClass {
+  public static void Main (string[] args) {
+      int[,] matrix = new int[3,5];
+      int x =0;
+      int soma =0;
+
+      for(int f =0; f < 3; f++){
+      for(int e =0; e < 5; e++){
+        Console.WriteLine($"Digite o valor da coluna {f} e {e}:");
+        x++;
+        matrix[f,e] =x;
+        matrix[f,e] = int.Parse(Console.ReadLine());
+        Console.Clear();
+       }
+      }
+      for(int f =0; f < 3; f++){
+      for(int e =0; e < 5; e++){
+        soma = soma + matrix[f,e];
+        Console.WriteLine("O resuntado de toda a soma é"+soma);
+       }
+      }
+    }
+   }
+-------------------------------------------------------------------
+4-
+using System;
+ class MainClass {
+  public static void Main (string[] args) {
+      int[,] matrix = new int[5,5];
+      int x =0;
+
+      for(int a =0; a < 5; a++){
+      for(int b =0; b < 5; b++){
+      x++;
+      matrix[a,b] =x; 
+      }
+      }
+      for(int a =0; a < 5; a++){
+      for(int b =0; b < 5; b++){
+      if(a != b){
+        Console.WriteLine($"[{matriz[a,b]}]");
+        }
+      else{
+        Console.WriteLine(" ");
+      }
+       }
+      }
+     }
+    }
+Professores, eu não estou conseguindo passar disto aqui nesse exercício, não sei nem se eu estou no caminho certo ou errado. Mesmo com a sua ajuda eu não consegui
+
+5-
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+   double[,] nota= new double[10,3];
+   string[] nome= new string[10];
+   double[] media= new double[10];
+   double valor =0;
+		  
+    for(int y =0; y < 10; y++ ){
+      Console.WriteLine($"Digite o nome do {y + 1} aluno:");
+      nome[y] = Console.ReadLine();
+      Console.WriteLine($"escreva a primeira nota do {y + 1} aluno:");
+			nota[y,0] = double.Parse(Console.ReadLine());
+      Console.WriteLine($"escreva a segunda nota do {y + 1} aluno:");
+			nota[y,1] = double.Parse(Console.ReadLine());
+      Console.WriteLine($"escreva a 3 terceira do {y + 1} aluno:");
+			nota[y,2] = double.Parse(Console.ReadLine());
+      valor = nota[y,0] + nota[y,1] + nota[y,2];
+      media[y] = valor/3;
+      }
+      Console.Clear();
+      Console.WriteLine("NOME-----NOTA-----MÉDIA");
+      for(int y =0; y < 10; y++){
+      Console.WriteLine("{0}-- {1} {2} {3} --{4}", nome[y], nota[y,0], nota[y,1], nota[y,2], media[y]);
+      if(media[y] >= 7){
+	Console.ForegroundColor = ConsoleColor.Blue;
+	}
+       else{
+	Console.ForegroundColor = ConsoleColor.Red;
+	}
+     }
+    }
+   }
+------------------------------------------------------------------------------
+6-
+using System;
+class MainClass {
+  public static void Main (string[] args) {
+    string[,] veia = new string[3,3]; 
+    bool jogadorVenceu = false;
+    int j = 0; 
+    int l = 0; 
+
+    for(int x =0; x < 3; x++){   
+     for(int y =0; y < 3; y++){
+     veia[x,y] = Convert.ToString(j);
+     j++;
+     }
+    }
+     j = 0;
+    do{
+       Console.WriteLine("JOGO DA VELHA"); 
+       for(int x =0; x < 3; x++){ 
+       for(int y =0; y < 3; y++){
+       Console.Write("|");
+       Console.Write($"{veia[x,y],3} ");
+       }
+       Console.WriteLine("|");         
+      }
+       Console.WriteLine(" ");
+      if(j %2==0){ 
+       Console.Write("----------\nPlayer X\n----------\ndigite um valor: ");
+       l = int.Parse(Console.ReadLine());
+       while(l<0 || l>9){ 
+        Console.Write("PRRRRRRRRRR! ESTE VALOR ESTÁ ERRADO! Digite um valor de 0 a 8: ");
+        l = int.Parse(Console.ReadLine());
+        }
+        if(l>=0 && l<=2){ 
+        if(veia[0,l] == "X" || veia[0,l] == "O" ){
+        Console.WriteLine("OPS! Esse espaçamento está preenchido, Aperte ENTER para continuar");
+        Console.ReadLine();
+        j--;
+        }else{
+          veia[0,l] = "X";
+         }
+        }else if(l>=3 && l<=5){
+          if(veia[1,l-3] == "X" || veia[1,l-3] == "O" ){
+          Console.WriteLine("OPS! Esse espaçamento está preenchido, Aperte ENTER para continuar.");
+          Console.ReadLine();
+           j--;
+          }else{
+           veia[1,l-3] = "X";
+         }
+          }else{
+            if(veia[2,l-6] == "X" || veia[2,l-6] == "O" ){
+            Console.WriteLine("OPS! Esse espaçamento está preenchido, Aperte ENTER para continuar.");
+            Console.ReadLine();
+            j--;
+          }else{
+            veia[2,l-6] = "X";
+         }
+        }
+          }else{
+           Console.Write("----------\nPlayer O\n----------\ndigite um valor: ");
+           l = int.Parse(Console.ReadLine());
+           while(l <0 || l >9){ 
+           Console.Write("PRRRRRRRRRR! ESTE VALOR ESTÁ ERRADO! Digite um valor de 0 a 8:");
+           l = int.Parse(Console.ReadLine());
+        }
+           if(l>=0 && l<=2){ 
+           if(veia[0,l] == "X" || veia[0,l] == "O" ){
+           Console.WriteLine("OPS! Esse espaçamento está preenchido, Aperte ENTER para continuar.");
+           Console.ReadLine();
+           j--;
+          }else{
+           veia[0,l] = "O";
+          }
+          }else if(l>=3 && l<=5){
+           if(veia[1,l-3] == "X" || veia[1,l-3] == "O" ){
+            Console.WriteLine("OPS! Esse espaçamento está preenchido, Aperte ENTER para continuar.");
+           Console.ReadLine();
+           j--;
+          }else{
+           veia[1,l-3] = "O";
+          }
+          }else{         
+          if(veia[2,l-6] == "X" || veia[2,l-6] == "O" ){
+              Console.WriteLine("OPS! Esse espaçamento está preenchido, Aperte ENTER para continuar.");
+              Console.ReadLine();
+              j--;
+            }else{
+              veia[2,l-6] = "O";
+            }         
+        }
+      }
+      for(int x = 0; x<3; x++){ 
+        if(veia[x,0] == veia[x,1] && veia[x,1] == veia[x,2]){
+          jogadorVenceu = true;
+        }
+      }
+      for(int y = 0; y<3; y++){ 
+        if(veia[0,y] == veia[1,y] && veia[1,y] == veia[2,y]){
+          jogadorVenceu = true;
+        }
+      }
+      if(veia[0,0] == veia[1,1] && veia[1,1] == veia[2,2]){ 
+        jogadorVenceu = true;
+      }
+
+      if(veia[0,2] == veia[1,1] && veia[1,1] == veia[2,0]){ 
+       jogadorVenceu = true;
+      }
+      Console.Clear();
+      j++; 
+    }while(j != 9 && jogadorVenceu!=true);
+
+     Console.WriteLine("JOGO DA VELHA"); 
+        for(int x = 0; x<3; x++){ 
+          for(int y = 0; y<3; y++){
+            Console.Write("|");
+            Console.Write($"{veia[x,y],3} ");
+          }
+          Console.WriteLine("|");
+        }
+        Console.WriteLine(" ");
+    if(jogadorVenceu==true){ 
+      Console.WriteLine("Temos um vencedor!"); 
+    }else{
+      Console.WriteLine("Deu velha!");
+    }
+  }
+}
+
+
+
+  
+
